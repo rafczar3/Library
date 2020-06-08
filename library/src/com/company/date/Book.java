@@ -9,16 +9,16 @@ public class Book {
     private String isbn;
 
     public Book(String title, String author, int releaseDate, int pages, String publisher) {
-        this.title = title;
-        this.author = author;
-        this.releaseDate = releaseDate;
-        this.pages = pages;
-        this.publisher = publisher;
+        setTitle(title);
+        setAuthor(author);
+        setReleaseDate(releaseDate);
+        setPages(pages);
+        setPublisher(publisher);
     }
 
     public Book(String title, String author, int releaseDate, int pages, String publisher, String isbn) {
         this(title, author, releaseDate, pages, publisher);
-        this.isbn = isbn;
+        setIsbn(isbn);
     }
 
     public void printBook() {
@@ -55,7 +55,10 @@ public class Book {
     }
 
     public void setPages(int pages) {
-        this.pages = pages;
+        if (pages >= 0)
+            this.pages = pages;
+        else
+            System.out.println("Invalid value");
     }
 
     public String getPublisher() {
@@ -71,6 +74,9 @@ public class Book {
     }
 
     public void setIsbn(String isbn) {
-        this.isbn = isbn;
+        if (isbn.length() == 13)
+            this.isbn = isbn;
+        else
+            System.out.println("Invalid value");
     }
 }
