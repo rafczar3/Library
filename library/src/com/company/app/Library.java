@@ -1,6 +1,10 @@
-package com.company.logic;
+package com.company.app;
 
-import com.company.date.Book;
+import com.company.io.DataReader;
+import com.company.model.Book;
+
+import javax.xml.crypto.Data;
+import java.sql.SQLOutput;
 
 public class Library {
 
@@ -8,6 +12,7 @@ public class Library {
         final String appName = "Library v0.7";
 
         Book[] books = new Book[1000];
+        DataReader dataReader = new DataReader();
 
 
         books[0] = new Book("W pustyni i w puszczy", "Henryk Sienkiewicz", 2010, 296, "Greg", "9788373271890");
@@ -17,10 +22,13 @@ public class Library {
 
 
         System.out.println(appName);
+        System.out.println("Enter your book.");
+        books[3] = dataReader.readAndCreateBook();
         System.out.println("Książki dostępne w bibliotece:");
         books[0].printBook();
         books[1].printBook();
         books[2].printBook();
+        books[3].printBook();
 
 
     }

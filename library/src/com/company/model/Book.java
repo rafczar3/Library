@@ -1,4 +1,4 @@
-package com.company.date;
+package com.company.model;
 
 public class Book {
     private String title;
